@@ -91,7 +91,9 @@ class WC_Product_Vendors_Authentication {
 		if ( ! is_wp_error( $user ) && WC_Product_Vendors_Utils::is_vendor( $user->ID ) ) {
 
 			// get all vendor data for this logged in user
-			$vendor_data = WC_Product_Vendors_Utils::get_all_vendor_data( $user->ID );
+			//$vendor_data = WC_Product_Vendors_Utils::get_all_vendor_data( $user->ID );
+			$vendor_data = WC_Product_Vendors_Utils::get_a_vendor_data( $user->ID );
+
 
 			// if a pending vendor don't allow login at all
 			if ( WC_Product_Vendors_Utils::is_pending_vendor( $user->ID ) ) {

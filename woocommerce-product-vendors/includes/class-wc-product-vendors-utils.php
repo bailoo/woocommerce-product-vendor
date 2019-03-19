@@ -233,6 +233,20 @@ class WC_Product_Vendors_Utils {
 
 		return $vendor_data;
 	}
+	
+	/**
+	 * Get a vendor data for a given user
+	 *
+	 */
+	public static function get_a_vendor_data( $user_id ) {
+
+		$vendor_id = get_user_meta( $user_id, '_sc_wcpv_vendor', true );
+		$vendor_data = WC_Product_Vendors_Utils::get_vendor_data_by_id( $vendor_id );
+
+		$vendors = array();
+		$vendors[ $vendor_id ] = $vendor_data;
+		return $vendors;		
+	}
 
 	/**
 	 * Gets all vendor data the passed in user is managing
@@ -432,8 +446,24 @@ class WC_Product_Vendors_Utils {
 			return $vendor_id;
 		}
 
-		return self::get_user_default_vendor();
+		//return self::get_user_default_vendor();
+		return self::get_user_meta_vendor();
 	}
+
+ 	/**
+         * Gets the users default meta vendor.
+         *
+         */
+        public static function get_user_meta_vendor() {
+		$vendor_id = get_user_meta( get_current_user_id(), '_sc_wcpv_vendor', true );
+
+                // Default vendor id.
+                if ( ! empty( $vendor_id ) ) {
+                        return $vendor_id ;
+                }
+
+                return false;
+        }
 
 	/**
 	 * Gets the users default active vendor.
