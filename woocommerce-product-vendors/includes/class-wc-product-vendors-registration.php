@@ -211,7 +211,7 @@ class WC_Product_Vendors_Registration {
 			// change this user's role to pending vendor
 			wp_update_user( apply_filters( 'wcpv_registration_default_user_data', array(
 				'ID'   => $user->ID,
-				'role' => 'wc_product_vendors_pending_vendor',
+				'role' => 'wc_product_vendors_manager_vendor',
 			) ) );
 
 			// Add new pending vendor to list.
@@ -289,7 +289,7 @@ class WC_Product_Vendors_Registration {
 			'first_name'      => $firstname,
 			'last_name'       => $lastname,
 			'display_name'    => $firstname,
-			'role'            => 'wc_product_vendors_pending_vendor',
+			'role'            => 'wc_product_vendors_manager_vendor',
 		) );
 
 		$user_id            = wp_insert_user( $args );
