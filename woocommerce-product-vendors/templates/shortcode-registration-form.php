@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h2><?php esc_html_e( 'Artist Registration', 'woocommerce-product-vendors' ); ?></h2>
 
-<p><?php esc_html_e( 'Submit the form below to become a artist with StarClinch.', 'woocommerce-product-vendors' ); ?></p>
+<p><?php esc_html_e( 'Submit the form below to become an artist with StarClinch.', 'woocommerce-product-vendors' ); ?></p>
 
 <form class="wcpv-shortcode-registration-form">
 
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</p>
 
 	<p class="form-row form-row-wide">
-		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please tell us about yourself.', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
+		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please provide your social links (Facebook/Instagram/YouTube).', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
 		<textarea class="input-text" name="vendor_description" id="wcpv-vendor-description" rows="4" tabindex="7"><?php if ( ! empty( $_POST['vendor_description'] ) ) echo esc_textarea( $_POST['vendor_description'] ); ?></textarea>
 	</p>
 
