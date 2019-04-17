@@ -47,7 +47,7 @@ class WC_Product_Vendors_Registration {
 		$localized_vars = array(
 			'ajaxurl'               => admin_url( 'admin-ajax.php' ),
 			'ajaxRegistrationNonce' => wp_create_nonce( '_wc_product_vendors_registration_nonce' ),
-			'success'               => __( 'Your request has been submitted.  You will be contacted shortly.', 'woocommerce-product-vendors' ),
+			'success'               => __( 'Your request has been submitted. Please check your mail to find your credentials to access your artist dashboard.', 'woocommerce-product-vendors' ),
 		);
 
 		wp_localize_script( 'wcpv-frontend-scripts', 'wcpv_registration_local', $localized_vars );
@@ -120,6 +120,12 @@ class WC_Product_Vendors_Registration {
 				if ( empty( $form_items['lastname'] ) ) {
 					$errors['lastname'] = __( 'Last Name is a required field.', 'woocommerce-product-vendors' );
 				}
+
+				if ( empty( $form_items['mobile'] ) ) {
+					$errors['mobile'] = __( 'Mobile Number is a required field.', 'woocommerce-product-vendors' );
+				}
+
+
 
 				if ( empty( $form_items['username'] ) ) {
 					$errors['username'] = __( 'Username is a required field.', 'woocommerce-product-vendors' );
@@ -217,6 +223,8 @@ class WC_Product_Vendors_Registration {
 			/*map the ID of this new vendor created with our custom field _sc_wcpv_vendor in Users data
 			This allows the product to be editable once published by the user who published it. */
 			$this->map_metadata_vendor($user->ID, '_sc_wcpv_vendor', $term['term_id']); 
+
+			update_field( 'mobile_number', $form_items['mobile'] , 'user_'.$user->ID );
 
 			// Add new pending vendor to list.
 			WC_Product_Vendors_Utils::set_new_pending_vendor( $user->ID );

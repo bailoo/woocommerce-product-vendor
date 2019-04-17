@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h2><?php esc_html_e( 'Artist Registration', 'woocommerce-product-vendors' ); ?></h2>
 
-<p><?php esc_html_e( 'Submit the form below to become an artist with StarClinch.', 'woocommerce-product-vendors' ); ?></p>
+<p><?php esc_html_e( 'Submit the form below to become a artist with StarClinch.', 'woocommerce-product-vendors' ); ?></p>
 
 <form class="wcpv-shortcode-registration-form">
 
@@ -31,10 +31,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="clear"></div>
 
-		<p class="form-row form-row-wide">
+		<p class="form-row form-row-first">
 			<label for="wcpv-username"><?php esc_html_e( 'Login Username', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
 			<input type="text" class="input-text" name="username" id="wcpv-username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( trim( $_POST['username'] ) ); ?>" tabindex="3" />
 		</p>
+
+		<p class="form-row form-row-last">
+			<label for="wcpv-mobile"><?php esc_html_e( 'Mobile Number', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
+			<input type="tel" class="input-text" name="mobile" id="wcpv-mobile" value="<?php if ( ! empty( $_POST['mobile'] ) ) echo esc_attr( trim( $_POST['mobile'] ) ); ?>" tabindex="4" />
+		</p>
+
+
 
 		<p class="form-row form-row-first">
 			<label for="wcpv-email"><?php esc_html_e( 'Email', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
@@ -46,6 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<input type="email" class="input-text" name="confirm_email" id="wcpv-confirm-email" value="<?php if ( ! empty( $_POST['confirm_email'] ) ) echo esc_attr( trim( $_POST['confirm_email'] ) ); ?>" tabindex="5" />
 		</p>
 
+		
 	<?php } ?>
 
 	<div class="clear"></div>
@@ -57,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</p>
 
 	<p class="form-row form-row-wide">
-		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please provide your social links (Facebook/Instagram/YouTube).', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
+		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please tell us about yourself.', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
 		<textarea class="input-text" name="vendor_description" id="wcpv-vendor-description" rows="4" tabindex="7"><?php if ( ! empty( $_POST['vendor_description'] ) ) echo esc_textarea( $_POST['vendor_description'] ); ?></textarea>
 	</p>
 
