@@ -214,8 +214,14 @@ class WC_Product_Vendors_Registration {
 				'role' => 'wc_product_vendors_manager_vendor',
 			) ) );
 
+			/*map the ID of this new vendor created with our custom field _sc_wcpv_vendor in Users data
+			This allows the product to be editable once published by the user who published it. */
+			$this->map_metadata_vendor($user->ID, '_sc_wcpv_vendor', $term['term_id']); 
+
 			// Add new pending vendor to list.
 			WC_Product_Vendors_Utils::set_new_pending_vendor( $user->ID );
+
+
 
 			$default_args = array(
 				'user_id'     => $user->ID,
@@ -230,10 +236,14 @@ class WC_Product_Vendors_Registration {
 
 			$args = apply_filters( 'wcpv_registration_args', wp_parse_args( $args, $default_args ), $args, $default_args );
 
-			do_action( 'wcpv_shortcode_registration_form_process', $args, $form_items );
+			do_action('wcpv_shortcode_registration_form_process', $args, $form_items);
+
+			
 
 			echo 'success';
+
 			exit;
+
 		} else {
 			global $errors;
 
@@ -295,11 +305,26 @@ class WC_Product_Vendors_Registration {
 		$user_id            = wp_insert_user( $args );
 		$user               = get_user_by( 'id', $user_id );
 		$user->add_cap( 'publish_products' );
-		
+
 		$password_reset_key = get_password_reset_key( $user );
 
 		$args['password_reset_key'] = $password_reset_key;
 
 		return $this->register_vendor( $form_items, $user, $args );
 	}
+
+
+
+	/**
+	 * Map the metadata _sc_wcpv_vendor in a user based on their vendor id
+	 *
+	 *
+	 */
+
+	public function map_metadata_vendor( $user_id, $metadata_key, $metadata_id) {
+		update_user_meta($user_id,  $metadata_key ,  $metadata_id );
+
+	}
+
+
 }

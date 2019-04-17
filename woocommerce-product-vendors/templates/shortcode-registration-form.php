@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<h2><?php esc_html_e( 'Vendor Registration', 'woocommerce-product-vendors' ); ?></h2>
+<h2><?php esc_html_e( 'Artist Registration', 'woocommerce-product-vendors' ); ?></h2>
 
-<p><?php esc_html_e( 'Submit the form below to become a vendor on this store.', 'woocommerce-product-vendors' ); ?></p>
+<p><?php esc_html_e( 'Submit the form below to become an artist with StarClinch.', 'woocommerce-product-vendors' ); ?></p>
 
 <form class="wcpv-shortcode-registration-form">
 
@@ -51,13 +51,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="clear"></div>
 
 	<p class="form-row form-row-wide">
-		<label for="wcpv-vendor-vendor-name"><?php esc_html_e( 'Vendor Name', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
+		<label for="wcpv-vendor-vendor-name"><?php esc_html_e( 'Professional Name', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
 		<input class="input-text" type="text" name="vendor_name" id="wcpv-vendor-name" value="<?php if ( ! empty( $_POST['vendor_name'] ) ) echo esc_attr( trim( $_POST['vendor_name'] ) ); ?>" tabindex="6" />
-		<em class="wcpv-field-note"><?php esc_html_e( 'Important: This is the name that customers see when purchasing your products.  Please choose carefully.', 'woocommerce-product-vendors' ); ?></em>
+		<em class="wcpv-field-note"><?php esc_html_e( 'Important: This is the name that customers see when they book you.  Please choose carefully.', 'woocommerce-product-vendors' ); ?></em>
 	</p>
 
 	<p class="form-row form-row-wide">
-		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please describe something about your company and what you sell.', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
+		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please provide your social links (Facebook/Instagram/YouTube).', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
 		<textarea class="input-text" name="vendor_description" id="wcpv-vendor-description" rows="4" tabindex="7"><?php if ( ! empty( $_POST['vendor_description'] ) ) echo esc_textarea( $_POST['vendor_description'] ); ?></textarea>
 	</p>
 
