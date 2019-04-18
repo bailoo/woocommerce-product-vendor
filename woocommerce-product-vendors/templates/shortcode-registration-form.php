@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</p>
 
 	<p class="form-row form-row-wide">
-		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please tell us about yourself.', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
+		<label for="wcpv-vendor-description"><?php esc_html_e( 'Please provide your social links(Facebook/Instagram/YouTube)', 'woocommerce-product-vendors' ); ?> <span class="required">*</span></label>
 		<textarea class="input-text" name="vendor_description" id="wcpv-vendor-description" rows="4" tabindex="7"><?php if ( ! empty( $_POST['vendor_description'] ) ) echo esc_textarea( $_POST['vendor_description'] ); ?></textarea>
 	</p>
 
