@@ -312,7 +312,7 @@ class WC_Product_Vendors_Registration {
 
 		$user_id            = wp_insert_user( $args );
 		$user               = get_user_by( 'id', $user_id );
-		$user->add_cap( 'publish_products' );
+		//$user->add_cap( 'publish_products' );
 
 		$password_reset_key = get_password_reset_key( $user );
 
